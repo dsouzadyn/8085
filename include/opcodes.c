@@ -38,8 +38,13 @@ void execute(struct CPU *t, struct IP *ip, u_int inst[],  u_int e) {
     u_int c = 0;
     while(c < e) {
         switch(inst[c]){
-            case OP_ADD_A: ADD_A(t,ip); break;
-            case OP_ADD_B: ADD_B(t,ip); break;
+            case OP_ADD_A: ADD_A(t, ip); break;
+            case OP_ADD_B: ADD_B(t, ip); break;
+            case OP_ADD_C: ADD_C(t, ip); break;
+            case OP_ADD_D: ADD_D(t, ip); break;
+            case OP_ADD_E: ADD_E(t, ip); break;
+            case OP_ADD_H: ADD_H(t, ip); break;
+            case OP_ADD_L: ADD_L(t, ip); break;
             default: printf("UNKOWN OPCODE: 0x%x\n", inst[c]);
         }
         c++;
