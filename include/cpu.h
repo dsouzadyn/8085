@@ -22,4 +22,4 @@ struct STACK {
 
 struct IP {
     u_int loc:WORD;
-}
+};

@@ -1,10 +1,3 @@
-u_int opcodes = {
-    0x87
-};
-
-u_int o_size = {
-    1
-};
 
 void ADD_A(struct CPU *t, struct IP *ip) {
     ip->loc++;
@@ -41,12 +34,14 @@ void ADD_L(struct CPU *t, struct IP *ip) {
     t->A += t->L;
 }
 
-void execute(struct CPU *t, struct IP *ip, u_int inst[], u_int e) {
-    c = 0;
-    while(c <= e) {
-        switch(inst[c]) {
-            case opcodes[0]: ADD_A(&t, &ip); break;
-            default: printf("UNKNOWN OPCODE\n"); ip->loc++;
+void execute(struct CPU *t, struct IP *ip, u_int inst[],  u_int e) {
+    u_int c = 0;
+    while(c < e) {
+        switch(inst[c]){
+            case OP_ADD_A: ADD_A(t,ip); break;
+            case OP_ADD_B: ADD_B(t,ip); break;
+            default: printf("UNKOWN OPCODE: 0x%x\n", inst[c]);
         }
+        c++;
     }
 }
